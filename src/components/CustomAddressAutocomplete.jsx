@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchAddressSuggestions } from "../services/adress";
+import { fetchAddressSuggestions } from "../services/address";
 import debounce from "lodash/debounce";
 
 const CustomAddressAutocomplete = ({ onAddressSelect, value, name }) => {

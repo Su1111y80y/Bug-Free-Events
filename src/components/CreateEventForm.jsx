@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "./ui/Button";
-import { fetchCoordinates } from "../services/adress";
+import { fetchCoordinates } from "../services/address";
 import { addEvent } from "../services/network";
 import CustomAddressAutocomplete from "./CustomAddressAutocomplete";
 
