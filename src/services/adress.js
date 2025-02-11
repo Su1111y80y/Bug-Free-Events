@@ -17,13 +17,16 @@ export const fetchCoordinates = async (address) => {
     }
 };
 
-// export const fetchSuggestions = async (input) => {
-//     const response = await fetch(
-//         `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-//             input
-//         )}`
-//     );
-
-//     const data = await response.json();
-//     return data;
-// };
+export const fetchAddressSuggestions = async (value) => {
+    try {
+        const response = await fetch(
+            `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
+                value
+            )}&format=json&addressdetails=1&limit=5`
+        );
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching suggestions:", error);
+    }
+};

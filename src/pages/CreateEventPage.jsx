@@ -2,7 +2,7 @@ import CreateEventForm from "../components/CreateEventForm";
 
 const CreateEventPage = () => {
     return (
-        <div>
+        <div className="flex justify-center">
             <CreateEventForm />
         </div>
     );

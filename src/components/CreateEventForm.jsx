@@ -1,16 +1,23 @@
 import { useState } from "react";
 import Button from "./ui/Button";
 import { fetchCoordinates } from "../services/adress";
+import { addEvent } from "../services/network";
+import CustomAddressAutocomplete from "./CustomAddressAutocomplete";
 
 const CreateEventForm = () => {
     const [formData, setFormData] = useState({
-        name: "",
+        title: "",
         description: "",
-        dateTime: "",
-        address: "",
-        homepage: "",
-        logo: null,
+        date: "",
+        location: "",
     });
+
+    const handleAddressSelect = (selectedAddress) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            location: selectedAddress,
+        }));
+    };
 
     const handleChange = async (e) => {
         const { name, value } = e.target;
@@ -19,7 +26,7 @@ const CreateEventForm = () => {
             [name]: value,
         }));
 
-        if (name === "address") {
+        if (name === "location") {
             const coordinates = await fetchCoordinates(value);
             setFormData((prevData) => ({
                 ...prevData,
@@ -31,15 +38,31 @@ const CreateEventForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // The dateTime value is already in a proper format (e.g. "2025-02-10T14:30")
-        // If needed, you can convert it to an ISO string:
-        // const isoDateTime = new Date(formData.dateTime).toISOString();
         console.log(formData);
+
+        // Convert the datetime-local string to a complete ISO string
+        const eventData = {
+            ...formData,
+            date: new Date(formData.date).toISOString(),
+        };
+
+        const token =
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzM5MjA4ODk0LCJleHAiOjE3NDI4MDg4OTR9._vNJfzOMEWGlj7-n5vFBHzj_xA-ZjuJKTu2wde0MF0A";
+        addEvent(token, eventData);
+
+        setFormData({
+            title: "",
+            description: "",
+            date: "",
+            location: "",
+        });
     };
 
     return (
-        <div className="max-w-lg mx-auto p-6 bg-base-100 shadow-lg rounded-lg">
-            <h2 className="text-2xl font-bold text-primary mb-4">Event Form</h2>
+        <div className="max-w-lg w-full p-8 bg-base-100 shadow-lg rounded-lg mt-4">
+            <h2 className="text-2xl font-bold text-primary mb-4 text-center">
+                Event Form
+            </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label className="label font-semibold">
@@ -47,10 +70,10 @@ const CreateEventForm = () => {
                     </label>
                     <input
                         type="text"
-                        name="name"
-                        value={formData.name}
+                        name="title"
+                        value={formData.title}
                         onChange={handleChange}
-                        className="input input-bordered w-full"
+                        className="input input-bordered input-primary w-full"
                         required
                     />
                 </div>
@@ -61,23 +84,28 @@ const CreateEventForm = () => {
                         name="description"
                         value={formData.description}
                         onChange={handleChange}
-                        className="textarea textarea-bordered w-full"
+                        className="textarea textarea-bordered textarea-primary w-full"
                     ></textarea>
                 </div>
 
                 <div>
-                    <label className="label font-semibold">Address *</label>
+                    {/* <label className="label font-semibold">Address *</label>
                     <input
                         type="text"
-                        name="address"
-                        value={formData.address}
+                        name="location"
+                        value={formData.location}
                         onChange={handleChange}
-                        className="input input-bordered w-full"
+                        className="input input-bordered input-primary w-full"
                         required
                     />
                     <p className="text-sm text-gray-500">
                         Your address details are not publicly visible.
-                    </p>
+                    </p> */}
+                    <CustomAddressAutocomplete
+                        name="location"
+                        value={formData.location}
+                        onAddressSelect={handleAddressSelect}
+                    />
                 </div>
 
                 <div>
@@ -86,15 +114,27 @@ const CreateEventForm = () => {
                     </label>
                     <input
                         type="datetime-local"
-                        name="dateTime"
-                        value={formData.dateTime}
+                        name="date"
+                        value={formData.date}
                         onChange={handleChange}
                         className="input input-bordered input-primary w-full"
                         required
                     />
                 </div>
 
-                <Button type="submit" text={"Submit"} />
+                <div className="flex justify-between">
+                    <Button
+                        type="submit"
+                        text="Add Event"
+                        className="btn-primary"
+                    />
+                    <Button
+                        type="button"
+                        text="Cancel"
+                        className="btn-neutral"
+                        // onClick={handleCancel}
+                    />
+                </div>
             </form>
         </div>
     );
