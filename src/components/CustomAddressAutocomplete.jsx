@@ -36,6 +36,9 @@ const CustomAddressAutocomplete = ({ onAddressSelect, value, name }) => {
 
     return (
         <div className="relative">
+            <label className="label font-semibold flex justify-start gap-1">
+                Address <span className="text-red-700">*</span>
+            </label>
             <input
                 type="text"
                 placeholder="Enter address..."
@@ -43,6 +46,7 @@ const CustomAddressAutocomplete = ({ onAddressSelect, value, name }) => {
                 name={name}
                 onChange={(e) => setQuery(e.target.value)}
                 className="input input-bordered input-primary w-full"
+                required
             />
             {suggestions.length > 0 && (
                 <div className="absolute top-full left-0 right-0 border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-800 z-[1000]">

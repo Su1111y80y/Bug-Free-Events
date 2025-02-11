@@ -59,18 +59,20 @@ const CreateEventForm = () => {
     };
 
     return (
-        <div className="max-w-lg w-full p-8 bg-base-100 shadow-lg rounded-lg mt-4">
+        <div className="max-w-lg w-full p-8 bg-base-100 rounded-lg mt-4">
             <h2 className="text-2xl font-bold text-primary mb-4 text-center">
                 Event Form
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                    <label className="label font-semibold">
-                        Title of your Event *
+                    <label className="label font-semibold flex justify-start gap-1">
+                        Title of your Event
+                        <span className="text-red-700">*</span>
                     </label>
                     <input
                         type="text"
                         name="title"
+                        placeholder="Enter title..."
                         value={formData.title}
                         onChange={handleChange}
                         className="input input-bordered input-primary w-full"
@@ -82,6 +84,7 @@ const CreateEventForm = () => {
                     <label className="label font-semibold">Description</label>
                     <textarea
                         name="description"
+                        placeholder="Enter description..."
                         value={formData.description}
                         onChange={handleChange}
                         className="textarea textarea-bordered textarea-primary w-full"
@@ -89,18 +92,6 @@ const CreateEventForm = () => {
                 </div>
 
                 <div>
-                    {/* <label className="label font-semibold">Address *</label>
-                    <input
-                        type="text"
-                        name="location"
-                        value={formData.location}
-                        onChange={handleChange}
-                        className="input input-bordered input-primary w-full"
-                        required
-                    />
-                    <p className="text-sm text-gray-500">
-                        Your address details are not publicly visible.
-                    </p> */}
                     <CustomAddressAutocomplete
                         name="location"
                         value={formData.location}
@@ -108,9 +99,10 @@ const CreateEventForm = () => {
                     />
                 </div>
 
-                <div>
-                    <label className="label font-semibold">
+                <div className="pb-4">
+                    <label className="label font-semibold flex justify-start gap-1">
                         Select Date &amp; Time
+                        <span className="text-red-700">*</span>
                     </label>
                     <input
                         type="datetime-local"
@@ -122,19 +114,11 @@ const CreateEventForm = () => {
                     />
                 </div>
 
-                <div className="flex justify-between">
-                    <Button
-                        type="submit"
-                        text="Add Event"
-                        className="btn-primary"
-                    />
-                    <Button
-                        type="button"
-                        text="Cancel"
-                        className="btn-neutral"
-                        // onClick={handleCancel}
-                    />
-                </div>
+                <Button
+                    type="submit"
+                    text="Add Event"
+                    className="btn-primary w-full"
+                />
             </form>
         </div>
     );
