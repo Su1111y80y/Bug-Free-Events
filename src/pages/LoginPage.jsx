@@ -4,13 +4,16 @@ import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
 
 const LoginPage = () => {
+  // Get location state to determine which form to show initially
   const location = useLocation();
+  // Default to login view unless explicitly set to false in navigation state
   const [isLoginView, setIsLoginView] = useState(
     location.state?.isLogin !== false
   );
 
-  // Set initial view based on navigation state
+  // Update view when navigation state changes
   useEffect(() => {
+    // Set initial view based on navigation state
     setIsLoginView(location.state?.isLogin !== false);
   }, [location.state]);
 

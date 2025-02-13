@@ -5,17 +5,26 @@ import { authService } from "../services/auth.service";
 import Captcha from "./Captcha";
 
 const SignupForm = () => {
+  // Navigation hook for redirecting after successful registration
   const navigate = useNavigate();
+
+  // Form state management including all required fields
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+
+  // Validation and error handling states
   const [error, setError] = useState("");
   const [isCaptchaAttempted, setIsCaptchaAttempted] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
 
+  /**
+   * Validates all form fields and CAPTCHA completion
+   * Updates form validity state
+   */
   useEffect(() => {
     const isValid =
       formData.name.length > 0 &&

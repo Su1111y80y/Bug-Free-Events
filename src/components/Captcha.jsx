@@ -2,13 +2,20 @@ import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 
 const Captcha = ({ onFailure, onValidityChange }) => {
+  // State management for CAPTCHA
   const [userAnswer, setUserAnswer] = useState("");
   const [attempts, setAttempts] = useState(0);
   const [isVerified, setIsVerified] = useState(false);
+
+  // Initialize with random question
   const [currentQuestion, setCurrentQuestion] = useState(() =>
     generateQuestion()
   );
 
+  /**
+   * Generates a random question from the predefined set
+   * @returns {Object} Question object with question text, answer, and hint
+   */
   function generateQuestion() {
     const questions = [
       {

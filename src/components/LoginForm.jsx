@@ -5,20 +5,30 @@ import { authService } from "../services/auth.service";
 import { tokenService } from "../services/token.service";
 
 const LoginForm = () => {
+  // Navigation hook for redirecting after successful login
   const navigate = useNavigate();
+
+  // Form state management
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  // Error handling and form validation states
   const [error, setError] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
+  // Validate form whenever inputs change
   useEffect(() => {
     const isValid = formData.email.length > 0 && formData.password.length >= 8;
 
     setIsFormValid(isValid);
   }, [formData]);
 
+  /**
+   * Validates form data before submission
+   * @returns {boolean} Whether the form is valid
+   */
   const validateForm = () => {
     if (formData.password.length < 8) {
       setError("Password must be at least 8 characters long");
@@ -28,17 +38,19 @@ const LoginForm = () => {
     return true;
   };
 
+  /**
+   * Handles form submission
+   * Validates form, attempts login, and handles success/failure
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     try {
       const response = await authService.login(formData);
-      // Store the token
       tokenService.setToken(response.token);
-      // Show success message
+
       toast.success("Login successful!");
-      // Redirect to home page
       navigate("/");
     } catch (error) {
       setError(error.message || "Login failed. Please try again.");
