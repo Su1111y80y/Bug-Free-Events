@@ -5,6 +5,7 @@ import CustomAddressAutocomplete from "./CustomAddressAutocomplete";
 import MapPreview from "./MapPreview";
 import { toast } from "react-toastify";
 import { addEvent } from "../services/eventsApi";
+import { eventHandler } from "../services/events.handler";
 
 const CreateEventForm = () => {
     const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const CreateEventForm = () => {
         location: "",
         latitude: null,
         longitude: null,
+        imageUrl: "",
     });
 
     const handleAddressSelect = async (selectedAddress) => {
@@ -54,10 +56,14 @@ const CreateEventForm = () => {
             date: new Date(formData.date).toISOString(),
         };
 
+        const updateEventData =
+            eventHandler.prepareEventForSubmission(eventData);
+
         const token =
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzM5MjA4ODk0LCJleHAiOjE3NDI4MDg4OTR9._vNJfzOMEWGlj7-n5vFBHzj_xA-ZjuJKTu2wde0MF0A";
+
         try {
-            await addEvent(token, eventData);
+            await addEvent(token, updateEventData);
             toast.success("Event added successfully!");
 
             setFormData({
@@ -67,6 +73,7 @@ const CreateEventForm = () => {
                 location: "",
                 latitude: null,
                 longitude: null,
+                imageUrl: "",
             });
         } catch (error) {
             console.error("Error adding event:", error);
@@ -105,6 +112,20 @@ const CreateEventForm = () => {
                         onChange={handleChange}
                         className="textarea textarea-bordered textarea-primary w-full"
                     ></textarea>
+                </div>
+
+                <div>
+                    <label className="label font-semibold flex justify-start gap-1">
+                        Image
+                    </label>
+                    <input
+                        type="text"
+                        name="imageUrl"
+                        placeholder="Enter image url..."
+                        value={formData.imageUrl}
+                        onChange={handleChange}
+                        className="input input-bordered input-primary w-full"
+                    />
                 </div>
 
                 <div className="flex gap-4 items-start">
