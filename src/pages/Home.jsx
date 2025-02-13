@@ -4,6 +4,7 @@ import EventCard from "../components/EventCard";
 import { getUpcomingEvents } from "../services/eventsApi";
 import Button from "../components/ui/Button";
 import { Link } from "react-router";
+import { eventHandler } from "../services/events.handler";
 
 const Home = () => {
   const [events, setEvents] = useState([]);
@@ -14,8 +15,9 @@ const Home = () => {
     const fetchEvents = async () => {
       try {
         const data = await getUpcomingEvents();
-        console.log("upcoming", data);
-        setEvents(data.results || []);
+        const cleanData = data.results.map((event) => eventHandler.processEventData(event));
+        // console.log("cleanData", cleanData);
+        setEvents(cleanData || []);
       } catch (err) {
         console.error("Error fetching events:", err);
         setError(err.message);

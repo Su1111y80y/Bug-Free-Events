@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 import FilterSidebar from "../components/FilterSidebar";
 import { getAllEvents } from "../services/eventsApi";
+import { eventHandler } from "../services/events.handler";
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -17,7 +18,9 @@ const EventsPage = () => {
     const fetchEvents = async () => {
       try {
         const data = await getAllEvents();
-        setEvents(data.results || []);
+        const cleanData = data.results.map((event) => eventHandler.processEventData(event));
+        console.log("cleanData", cleanData);
+        setEvents(cleanData || []);
       } catch (err) {
         console.error("Error fetching events:", err);
         setError(err.message);
@@ -30,7 +33,7 @@ const EventsPage = () => {
 
   const eventsToDisplay = events.filter((event) => {
     const matchesLocation = filters.location ? event.location === filters.location : true;
-    // Assuming each event has a `title` field.
+
     const matchesSearch = filters.search
       ? event.title.toLowerCase().includes(filters.search.toLowerCase())
       : true;
