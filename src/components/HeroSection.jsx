@@ -1,9 +1,10 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Link, useNavigate } from "react-router";
+import { tokenService } from "../services/token.service";
 
 const HeroSection = () => {
   const images = [
@@ -11,6 +12,15 @@ const HeroSection = () => {
     "./src/images/opera.jpg",
     "./src/images/conference.jpg",
   ];
+  const token = tokenService.getToken();
+  const navigate = useNavigate();
+
+  const handleCreateEventClick = (e) => {
+    if (!token) {
+      e.preventDefault();
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="relative w-full h-screen">

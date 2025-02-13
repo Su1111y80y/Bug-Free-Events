@@ -6,6 +6,7 @@ import MapPreview from "./MapPreview";
 import { toast } from "react-toastify";
 import { addEvent } from "../services/eventsApi";
 import { eventHandler } from "../services/events.handler";
+import { tokenService } from "../services/token.service";
 
 const CreateEventForm = () => {
     const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ const CreateEventForm = () => {
         longitude: null,
         imageUrl: "",
     });
+    const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleAddressSelect = async (selectedAddress) => {
         setFormData((prevData) => ({
@@ -42,14 +45,48 @@ const CreateEventForm = () => {
 
     const handleChange = async (e) => {
         const { name, value } = e.target;
+        setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
         }));
     };
 
+    const validateForm = () => {
+        const errorsObj = {};
+        if (!formData.title.trim()) {
+            errorsObj.title = "Title is required";
+        }
+        if (!formData.date) {
+            errorsObj.date = "Date & Time is required";
+        } else if (new Date(formData.date) <= new Date()) {
+            errorsObj.date = "Date & Time must be in the future";
+        }
+        if (!formData.location.trim()) {
+            errorsObj.location = "Location is required";
+        }
+        // If imageUrl is provided, validate its format
+        if (formData.imageUrl.trim()) {
+            try {
+                new URL(formData.imageUrl);
+            } catch {
+                errorsObj.imageUrl = "Please enter a valid URL";
+            }
+        }
+        return errorsObj;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const validationErrors = validateForm();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        setIsSubmitting(true);
+        setErrors({});
 
         const eventData = {
             ...formData,
@@ -59,8 +96,7 @@ const CreateEventForm = () => {
         const updateEventData =
             eventHandler.prepareEventForSubmission(eventData);
 
-        const token =
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzM5MjA4ODk0LCJleHAiOjE3NDI4MDg4OTR9._vNJfzOMEWGlj7-n5vFBHzj_xA-ZjuJKTu2wde0MF0A";
+        const token = tokenService.getToken();
 
         try {
             await addEvent(token, updateEventData);
@@ -77,6 +113,9 @@ const CreateEventForm = () => {
             });
         } catch (error) {
             console.error("Error adding event:", error);
+            toast.error("Failed to add event. Please try again.");
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -101,6 +140,11 @@ const CreateEventForm = () => {
                         className="input input-bordered input-primary w-full"
                         required
                     />
+                    {errors.title && (
+                        <p className="text-red-500 text-sm mt-1">
+                            {errors.title}
+                        </p>
+                    )}
                 </div>
 
                 <div>
@@ -126,6 +170,11 @@ const CreateEventForm = () => {
                         onChange={handleChange}
                         className="input input-bordered input-primary w-full"
                     />
+                    {errors.imageUrl && (
+                        <p className="text-red-500 text-sm mt-1">
+                            {errors.imageUrl}
+                        </p>
+                    )}
                 </div>
 
                 <div className="flex gap-4 items-start">
@@ -135,6 +184,11 @@ const CreateEventForm = () => {
                             value={formData.location}
                             onAddressSelect={handleAddressSelect}
                         />
+                        {errors.location && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.location}
+                            </p>
+                        )}
                     </div>
                     {formData.latitude && formData.longitude && (
                         <div className="w-40 h-40 border rounded border-[var(--fallback-bc,oklch(var(--bc)/0.2))]">
@@ -161,12 +215,18 @@ const CreateEventForm = () => {
                         className="input input-bordered input-primary w-full"
                         required
                     />
+                    {errors.date && (
+                        <p className="text-red-500 text-sm mt-1">
+                            {errors.date}
+                        </p>
+                    )}
                 </div>
 
                 <Button
                     type="submit"
-                    text="Add Event"
+                    text={isSubmitting ? "Submitting..." : "Add Event"}
                     className="btn-primary w-full"
+                    disabled={isSubmitting}
                 />
             </form>
         </div>
