@@ -15,7 +15,7 @@ const HeroSection = () => {
   return (
     <div className="relative w-full h-screen">
       <Swiper
-        spaceBetween={5}
+        spaceBetween={0}
         centeredSlides={true}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
@@ -41,7 +41,7 @@ const HeroSection = () => {
                   </p>
                   <div className="mt-4 flex justify-center gap-4">
                     <a
-                      href="/events"
+                      href="#event-section"
                       className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
                     >
                       Explore Events
