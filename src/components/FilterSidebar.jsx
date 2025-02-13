@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa"; // Import a proper search icon
 import { toast } from "react-toastify";
-import Button from "./ui/Button";
+import Button from "./ui/Button"; // Adjust the import path as needed
+import { getAllEvents } from "../services/eventsApi";
 
 function FilterSidebar({ onFilterChange }) {
-  const [filters, setFilters] = useState({
-    location: "",
-  });
+  const [filters, setFilters] = useState({ location: "", search: "" });
+  const [locations, setLocations] = useState([]);
+
+  // Fetch events and extract unique locations when the component mounts
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const data = await getAllEvents();
+        const results = data.results;
+        const eventLocations = results.map((event) => event.location);
+        // console.log(eventLocations);
+        const uniqueLocations = [...new Set(eventLocations)].filter(Boolean);
+        setLocations(uniqueLocations);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,8 +34,10 @@ function FilterSidebar({ onFilterChange }) {
   };
 
   const handleClearFilters = () => {
-    setFilters({ location: "" });
-    onFilterChange({ location: "" });
+    const clearedFilters = { location: "", search: "" };
+
+    setFilters(clearedFilters);
+    onFilterChange(clearedFilters);
   };
 
   const handleCreateAlerts = () => {
@@ -29,17 +49,18 @@ function FilterSidebar({ onFilterChange }) {
       className="w-full md:w-1/5 bg-white p-6 mt-12 shadow-lg rounded-lg flex flex-col gap-6 
     max-h-[65vh] overflow-y-auto"
     >
-      {/* Search Bar */}
       <div className="relative">
         <input
           type="text"
-          placeholder="Search for anything"
+          name="search"
+          placeholder="Search for event"
+          value={filters.search}
+          onChange={handleChange}
           className="w-full px-4 py-3 pl-10 text-gray-700 bg-gray-100 rounded-lg outline-none placeholder-gray-400"
         />
         <FaSearch className="absolute left-3 top-3 text-gray-400" />
       </div>
 
-      {/* Filters Section */}
       <div className="border-b pb-4">
         <label className="block text-gray-900 font-semibold mb-2">Location</label>
         <select
@@ -49,9 +70,11 @@ function FilterSidebar({ onFilterChange }) {
           className="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg text-gray-700"
         >
           <option value="">All Locations</option>
-          <option value="Karlsruhe">Karlsruhe</option>
-          <option value="Stuttgart">Stuttgart</option>
-          <option value="Munich">Munich</option>
+          {locations.map((loc) => (
+            <option key={loc} value={loc}>
+              {loc}
+            </option>
+          ))}
         </select>
       </div>
 
