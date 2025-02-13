@@ -45,7 +45,7 @@ export const getAllEvents = async () => {
     }
 };
 
-export const getAllUpcomingEvents = async () => {
+export const getUpcomingEvents = async () => {
     try {
         const eventsUpcoming = `${eventsPath}/upcoming`;
 
@@ -111,5 +111,24 @@ export const editEvent = async (token, id, eventData) => {
         return data;
     } catch (e) {
         console.log(`${e}, Error updating an event`);
+    }
+};
+
+export const getEventById = async (id) => {
+    try {
+        const eventsByIdPath = `${eventsPath}/${id}`;
+        const options = {
+            method: "GET",
+        };
+        const response = await fetch(`${eventsByIdPath}`, options);
+
+        if (!response.ok) {
+            throw new Error("Failed to get an event by id");
+        }
+        const data = await response.json();
+        // console.log("Getting an event by id successfully:", data);
+        return data;
+    } catch (e) {
+        console.log(`${e}, Error getting an event by id`);
     }
 };
