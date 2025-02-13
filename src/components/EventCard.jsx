@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router";
 
-const EventCard = ({ event }) => {
+const EventCard = () => {
   const navigate = useNavigate();
 
   return (
     <div
       className="relative bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer"
-      onClick={() => navigate(`/event/${event.id}`)}
+      onClick={() => navigate(`/event/`)}
     >
       {/* Event Image */}
       <img
