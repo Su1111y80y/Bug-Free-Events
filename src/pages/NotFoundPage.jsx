@@ -5,7 +5,6 @@ const NotFoundPage = () => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        // Trigger fade-in on mount
         setLoaded(true);
     }, []);
 
@@ -27,8 +26,8 @@ const NotFoundPage = () => {
                 <h2 className="mt-4 text-2xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-200">
                     Page Not Found
                 </h2>
-                <p className="mt-2 text-base sm:text-lg text-gray-600 dark:text-gray-300">
-                    Oops! This page got lost chasing digital squirrels 🐿️.
+                <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
+                    Oops! Looks like this page got eaten by digital bugs 🐛.
                 </p>
                 <Link
                     to="/"
