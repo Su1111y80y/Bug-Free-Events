@@ -63,9 +63,6 @@ const Navbar = () => {
           <Link to="/" className="block">
             Home
           </Link>
-          <Link to="/events" className="block">
-            Events
-          </Link>
           <Link to="/create-event" className="block">
             Create Event
           </Link>
@@ -73,7 +70,7 @@ const Navbar = () => {
             to="/signin"
             className="block bg-indigo-600 text-white px-4 py-2 rounded-lg"
           >
-            Sign In
+            Login
           </Link>
           <Link
             to="/signup"
