@@ -35,13 +35,15 @@ const Navbar = () => {
         {/* Authentication Buttons (Static for Now) */}
         <div className="hidden md:flex items-center space-x-4">
           <Link
-            to="/signin"
+            to="/login"
+            state={{ isLogin: true }}
             className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-800"
           >
             Login
           </Link>
           <Link
-            to="/signup"
+            to="/login"
+            state={{ isLogin: false }}
             className="px-4 py-2 border border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-600 hover:text-white"
           >
             Sign Up
@@ -67,13 +69,15 @@ const Navbar = () => {
             Create Event
           </Link>
           <Link
-            to="/signin"
+            to="/login"
+            state={{ isLogin: true }}
             className="block bg-indigo-600 text-white px-4 py-2 rounded-lg"
           >
             Login
           </Link>
           <Link
-            to="/signup"
+            to="/login"
+            state={{ isLogin: false }}
             className="block border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg"
           >
             Sign Up
