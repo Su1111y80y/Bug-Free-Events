@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import HeroSection from "../components/HeroSection";
 import EventCard from "../components/EventCard";
+import { getUpcomingEvents } from "../services/eventsApi";
+import Button from "../components/ui/Button";
+import { Link } from "react-router";
+import { eventHandler } from "../services/events.handler";
 
 const Home = () => {
   const [events, setEvents] = useState([]);
@@ -10,12 +14,10 @@ const Home = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/events/");
-        if (!response.ok) throw new Error("Failed to fetch events");
-
-        const data = await response.json();
-
-        setEvents(data.results || []);
+        const data = await getUpcomingEvents();
+        const cleanData = data.results.map((event) => eventHandler.processEventData(event));
+        // console.log("cleanData", cleanData);
+        setEvents(cleanData || []);
       } catch (err) {
         console.error("Error fetching events:", err);
         setError(err.message);
@@ -36,20 +38,19 @@ const Home = () => {
           Upcoming Events
         </h2>
 
-        {loading && (
-          <p className="text-center text-gray-600 mt-4">Loading events...</p>
-        )}
+        {loading && <p className="text-center text-gray-600 mt-4">Loading events...</p>}
         {error && <p className="text-center text-red-500 mt-4">{error}</p>}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-6">
           {events.length > 0
             ? events.map((event) => <EventCard key={event.id} event={event} />)
             : !loading && (
-                <p className="text-center text-gray-500 col-span-full">
-                  No events found.
-                </p>
+                <p className="text-center text-gray-500 col-span-full">No events found.</p>
               )}
         </div>
+        <Link to="/events">
+          <Button text="See All Events" className="btn-primary w-full m-4" />
+        </Link>
       </div>
     </div>
   );
