@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "./ui/Button";
 import { fetchCoordinates } from "../services/address";
-import { addEvent } from "../services/network";
+import { addEvent } from "../services/eventHandler";
 import CustomAddressAutocomplete from "./CustomAddressAutocomplete";
 import MapPreview from "./MapPreview";
 import { toast } from "react-toastify";
