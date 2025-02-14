@@ -4,13 +4,13 @@ import { toast } from "react-toastify";
 import { authService } from "../services/auth.service";
 import { tokenService } from "../services/token.service";
 
-const LoginForm = () => {
+const LoginForm = ({ initialEmail = "" }) => {
   // Navigation hook for redirecting after successful login
   const navigate = useNavigate();
 
   // Form state management
   const [formData, setFormData] = useState({
-    email: "",
+    email: initialEmail,
     password: "",
   });
 
@@ -49,6 +49,7 @@ const LoginForm = () => {
     try {
       const response = await authService.login(formData);
       tokenService.setToken(response.token);
+      tokenService.setUser(response.user); // Store user data
 
       toast.success("Login successful!");
       navigate("/");
@@ -107,11 +108,7 @@ const LoginForm = () => {
         </label>
       </div>
 
-      <button
-        type="submit"
-        className="btn btn-primary w-full"
-        disabled={!isFormValid}
-      >
+      <button type="submit" className="btn btn-primary w-full" disabled={!isFormValid}>
         Sign In
       </button>
     </form>

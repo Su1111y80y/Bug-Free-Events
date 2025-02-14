@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { authService } from "../services/auth.service";
 import Captcha from "./Captcha";
 
-const SignupForm = () => {
+const SignupForm = ({ onSignupSuccess }) => {
   // Navigation hook for redirecting after successful registration
   const navigate = useNavigate();
 
@@ -55,13 +55,15 @@ const SignupForm = () => {
 
     try {
       const userData = {
+        name: formData.name,
         email: formData.email,
         password: formData.password,
       };
 
-      const response = await authService.register(userData);
-      toast.success("Account created successfully! Please log in.");
-      navigate("/login");
+      await authService.register(userData);
+      toast.success("Account created successfully!");
+      // Call the success handler to switch to login view
+      onSignupSuccess(formData.email);
     } catch (error) {
       if (error.message.includes("already exists")) {
         setError("An account with this email already exists");
@@ -160,22 +162,14 @@ const SignupForm = () => {
         />
       </div>
 
-      <Captcha
-        onFailure={handleCaptchaFailure}
-        onValidityChange={handleCaptchaValidityChange}
-      />
+      <Captcha onFailure={handleCaptchaFailure} onValidityChange={handleCaptchaValidityChange} />
 
-      <button
-        type="submit"
-        className="btn btn-primary w-full"
-        disabled={!isFormValid}
-      >
+      <button type="submit" className="btn btn-primary w-full" disabled={!isFormValid}>
         Create Account
       </button>
 
       <p className="text-xs text-center text-base-content/70 mt-2">
-        * Sign up functionality is currently in development. Please use the
-        login option.
+        * Sign up functionality is currently in development. Please use the login option.
       </p>
     </form>
   );
