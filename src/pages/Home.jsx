@@ -30,11 +30,11 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen ">
       <HeroSection />
 
       <div id="event-section" className=" container mx-auto mt-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-6 mt-10 tracking-wide leading-tight">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-6 mt-10 tracking-wide leading-tight">
           Upcoming Events
         </h2>
 

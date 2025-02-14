@@ -36,22 +36,16 @@ const HeroSection = () => {
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-screen  ">
-              <img
-                src={image}
-                alt="Event"
-                className="w-full h-full object-cover object-center"
-              />
+              <img src={image} alt="Event" className="w-full h-full object-cover object-center" />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                 <div className="text-center text-white p-5">
-                  <h1 className="text-4xl md:text-5xl font-bold">
-                    Discover Amazing Events!
-                  </h1>
+                  <h1 className="text-4xl md:text-5xl font-bold">Discover Amazing Events!</h1>
                   <p className="mt-2 text-lg md:text-xl">
                     Join the best events happening near you.
                   </p>
                   <div className="mt-4 flex justify-center gap-4">
                     <a
-                      href="#event-section"
+                      href="/events"
                       className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
                     >
                       Explore Events
