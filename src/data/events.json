@@ -1,110 +1,110 @@
 [
-    {
-        "title": "Winter Wonderland Market",
-        "description": "Experience the magic of winter at the Nuremberg Christmas Market! 🎄 Sip on mulled wine, enjoy traditional German treats, and shop for handcrafted gifts.\n[imageUrl:https://www.varta-guide.de/wp-content/uploads/2015/12/37053047-Sebaldkirche-mit-Christkindlesmarkt-in-N%C3%BCrnberg%C2%A9-Thiemo-Wenkemann-DTP.-jpg.jpg]",
-        "date": "2024-12-15T18:00:00.000Z",
-        "location": "Hauptmarkt, 90403 Nuremberg",
-        "latitude": 11.075343,
-        "longitude": 49.453872,
-        "organizerId": 1
-    },
-    {
-        "title": "Shakespeare Under the Stars",
-        "description": "Step into the world of William Shakespeare at this open-air theater performance! 🎭 Classic plays in a breathtaking medieval setting.\n[imageUrl:https://images.squarespace-cdn.com/content/v1/594124ce29687fb19acf19d2/1508955987780-FKOX61DIYPN37R4JZPAT/DSC_0099.jpg]",
-        "date": "2025-05-20T19:00:00.000Z",
-        "location": "Schlossgarten, 70173 Stuttgart",
-        "latitude": 9.182932,
-        "longitude": 48.778448,
-        "organizerId": 2
-    },
-    {
-        "title": "AI & Tech Conference 2025",
-        "description": "Join leading experts in AI, software development, and future tech! 🤖💻 Keynote speakers from top tech firms, plus hands-on workshops.\n[imageUrl:https://img.freepik.com/premium-photo/future-artificial-intelligence-robot-network-system-background_432372-88.jpg]",
-        "date": "2025-01-20T09:00:00.000Z",
-        "location": "Messe München, 81823 Munich",
-        "latitude": 11.695248,
-        "longitude": 48.133345,
-        "organizerId": 2
-    },
-    {
-        "title": "Puppy Adoption Day",
-        "description": "Looking for a furry friend? 🐶🐾 Meet adorable rescue puppies waiting for their forever home! Adoption fees waived for special cases.\n[imageUrl:https://www.edenprairiecenter.com/media/v1/302/2023/12/Adoption-Day.png]",
-        "date": "2025-02-10T14:00:00.000Z",
-        "location": "Tierheim Hamburg, Süderstraße 399, 20537 Hamburg",
-        "latitude": 10.041298,
-        "longitude": 53.540622,
-        "organizerId": 2
-    },
-    {
-        "title": "Spring Blossom Festival",
-        "description": "Step into a wonderland of cherry blossoms! 🌸 Live music, food stalls, and Japanese tea ceremonies make this an unforgettable experience.\n[imageUrl:https://i.natgeofe.com/n/73f30d2b-aebd-4da1-822e-31519929a4c6/LEADGettyImages.jpg]",
-        "date": "2025-04-05T12:00:00.000Z",
-        "location": "Rheinpark, 50679 Cologne",
-        "latitude": 6.974856,
-        "longitude": 50.943876,
-        "organizerId": 3
-    },
-    {
-        "title": "Jazz Nights at the Elbphilharmonie",
-        "description": "Enjoy an unforgettable night of smooth jazz at Germany's most iconic concert hall! 🎷 Featuring world-renowned jazz musicians.\n[imageUrl:https://d3c80vss50ue25.cloudfront.net/media/filer_public_thumbnails/filer_public/44/04/4404783d-47fe-46b6-943f-71a5a2801be5/230820_jazzacademy_abschlusskonzert_c_claudia_hohne_111.jpg__1794x897_q85_crop_subject_location-960%2C640_subsampling-2_upscale.jpg]",
-        "date": "2025-07-10T20:00:00.000Z",
-        "location": "Elbphilharmonie, 20457 Hamburg",
-        "latitude": 9.984133,
-        "longitude": 53.541306,
-        "organizerId": 1
-    },
-    {
-        "title": "Oktoberfest Celebration",
-        "description": "Grab your lederhosen and enjoy Bavaria’s best beers! 🍺🍂 Authentic German food, live music, and fun activities await!\n[imageUrl:https://www.dontdiewondering.com/_next/image/?url=https%3A%2F%2Fbackend.dontdiewondering.com%2Fwp-content%2Fuploads%2F2021%2F10%2FBest-Oktoberfest-Celebrations-Around-The-World-scaled.jpg&w=1920&q=100]",
-        "date": "2025-09-25T16:00:00.000Z",
-        "location": "Theresienwiese, 80336 Munich",
-        "latitude": 11.553223,
-        "longitude": 48.131432,
-        "organizerId": 2
-    },
-    {
-        "title": "Berlin Theater Festival",
-        "description": "A showcase of Germany’s best theatrical performances! 🎭 Experience contemporary and classic plays in Berlin’s cultural heart.\n[imageUrl:https://www.radiodrei.de/content/dam/rbb/kul/rezensionen/buehne/2024/performing-arts-1920.jpg.jpg/size=966x543.jpg]",
-        "date": "2025-06-15T18:00:00.000Z",
-        "location": "Schaubühne, 10719 Berlin",
-        "latitude": 13.312055,
-        "longitude": 52.498229,
-        "organizerId": 3
-    },
-    {
-        "title": "Rock & Roll Music Festival",
-        "description": "Get ready for electrifying performances from top rock bands! 🎸🔥 Food trucks, craft beer, and non-stop music.\n[imageUrl:https://as2.ftcdn.net/jpg/04/54/23/55/1000_F_454235513_3ISGa2eNG6nQKpoavcuASI1IMpgZczn8.jpg]",
-        "date": "2025-08-20T14:00:00.000Z",
-        "location": "Zeche Zollverein, 45141 Essen",
-        "latitude": 7.045215,
-        "longitude": 51.486522,
-        "organizerId": 3
-    },
-    {
-        "title": "Marathon Challenge 2024",
-        "description": "A thrilling marathon that pushed runners to their limits! 🏃‍♂️🏅 Stay tuned for next year's edition!\n[imageUrl:https://www.berlinglobal.org/content/images/Photo6_960x960-s4q85.jpg]",
-        "date": "2024-05-18T06:00:00.000Z",
-        "location": "Tiergarten, 10557 Berlin",
-        "latitude": 13.367269,
-        "longitude": 52.516263,
-        "organizerId": 3
-    },
-    {
-        "title": "Culinary Street Food Fiesta",
-        "description": "Taste the world with local street food delights! 🍜 Enjoy live cooking demos and savor exotic flavors.\n[imageUrl:https://images.squarespace-cdn.com/content/v1/53e52074e4b0392a271246de/1558335130555-12QFNNLTBB2O2F86SGYV/2019-SFF-Facebook-Homepage-001-blanko.jpg]",
-        "date": "2025-03-15T17:00:00.000Z",
-        "location": "Markthalle, 10115 Berlin",
-        "latitude": 13.404954,
-        "longitude": 52.520008,
-        "organizerId": 1
-    },
-    {
-        "title": "Eco Art & Music Festival",
-        "description": "Celebrate creativity and nature at this eco-friendly festival! 🎨🌿 Enjoy live art installations and musical performances in a sustainable venue.\n[imageUrl:https://www.heh.de/wp-content/uploads/2024/03/twso2022-festivalansicht-drohne-c-antonbrandl-300rgb-1200x430.jpg.webp]",
-        "date": "2025-10-05T15:00:00.000Z",
-        "location": "Olympiapark, 80809 Munich",
-        "latitude": 11.5685,
-        "longitude": 48.1372,
-        "organizerId": 2
-    }
+  {
+    "title": "Winter Wonderland Market",
+    "description": "Experience the magic of winter at the Nuremberg Christmas Market! 🎄 Sip on mulled wine, enjoy traditional German treats, and shop for handcrafted gifts.\n[imageUrl:https://www.varta-guide.de/wp-content/uploads/2015/12/37053047-Sebaldkirche-mit-Christkindlesmarkt-in-N%C3%BCrnberg%C2%A9-Thiemo-Wenkemann-DTP.-jpg.jpg]",
+    "date": "2024-12-15T18:00:00.000Z",
+    "location": "Hauptmarkt, 90403 Nuremberg",
+    "latitude": 49.453872,
+    "longitude": 11.075343,
+    "organizerId": 1
+  },
+  {
+    "title": "Shakespeare Under the Stars",
+    "description": "Step into the world of William Shakespeare at this open-air theater performance! 🎭 Classic plays in a breathtaking medieval setting.\n[imageUrl:https://images.squarespace-cdn.com/content/v1/594124ce29687fb19acf19d2/1508955987780-FKOX61DIYPN37R4JZPAT/DSC_0099.jpg]",
+    "date": "2025-05-20T19:00:00.000Z",
+    "location": "Schlossgarten, 70173 Stuttgart",
+    "latitude": 48.778448,
+    "longitude": 9.182932,
+    "organizerId": 2
+  },
+  {
+    "title": "AI & Tech Conference 2025",
+    "description": "Join leading experts in AI, software development, and future tech! 🤖💻 Keynote speakers from top tech firms, plus hands-on workshops.\n[imageUrl:https://img.freepik.com/premium-photo/future-artificial-intelligence-robot-network-system-background_432372-88.jpg]",
+    "date": "2025-01-20T09:00:00.000Z",
+    "location": "Messe München, 81823 Munich",
+    "latitude": 48.133345,
+    "longitude": 11.695248,
+    "organizerId": 2
+  },
+  {
+    "title": "Puppy Adoption Day",
+    "description": "Looking for a furry friend? 🐶🐾 Meet adorable rescue puppies waiting for their forever home! Adoption fees waived for special cases.\n[imageUrl:https://www.edenprairiecenter.com/media/v1/302/2023/12/Adoption-Day.png]",
+    "date": "2025-02-10T14:00:00.000Z",
+    "location": "Tierheim Hamburg, Süderstraße 399, 20537 Hamburg",
+    "latitude": 53.540622,
+    "longitude": 10.041298,
+    "organizerId": 2
+  },
+  {
+    "title": "Spring Blossom Festival",
+    "description": "Step into a wonderland of cherry blossoms! 🌸 Live music, food stalls, and Japanese tea ceremonies make this an unforgettable experience.\n[imageUrl:https://i.natgeofe.com/n/73f30d2b-aebd-4da1-822e-31519929a4c6/LEADGettyImages.jpg]",
+    "date": "2025-04-05T12:00:00.000Z",
+    "location": "Rheinpark, 50679 Cologne",
+    "latitude": 50.943876,
+    "longitude": 6.974856,
+    "organizerId": 3
+  },
+  {
+    "title": "Jazz Nights at the Elbphilharmonie",
+    "description": "Enjoy an unforgettable night of smooth jazz at Germany's most iconic concert hall! 🎷 Featuring world-renowned jazz musicians.\n[imageUrl:https://d3c80vss50ue25.cloudfront.net/media/filer_public_thumbnails/filer_public/44/04/4404783d-47fe-46b6-943f-71a5a2801be5/230820_jazzacademy_abschlusskonzert_c_claudia_hohne_111.jpg__1794x897_q85_crop_subject_location-960%2C640_subsampling-2_upscale.jpg]",
+    "date": "2025-07-10T20:00:00.000Z",
+    "location": "Elbphilharmonie, 20457 Hamburg",
+    "latitude": 53.541306,
+    "longitude": 9.984133,
+    "organizerId": 1
+  },
+  {
+    "title": "Oktoberfest Celebration",
+    "description": "Grab your lederhosen and enjoy Bavaria’s best beers! 🍺🍂 Authentic German food, live music, and fun activities await!\n[imageUrl:https://www.dontdiewondering.com/_next/image/?url=https%3A%2F%2Fbackend.dontdiewondering.com%2Fwp-content%2Fuploads%2F2021%2F10%2FBest-Oktoberfest-Celebrations-Around-The-World-scaled.jpg&w=1920&q=100]",
+    "date": "2025-09-25T16:00:00.000Z",
+    "location": "Theresienwiese, 80336 Munich",
+    "latitude": 48.131432,
+    "longitude": 11.553223,
+    "organizerId": 2
+  },
+  {
+    "title": "Berlin Theater Festival",
+    "description": "A showcase of Germany’s best theatrical performances! 🎭 Experience contemporary and classic plays in Berlin’s cultural heart.\n[imageUrl:https://www.radiodrei.de/content/dam/rbb/kul/rezensionen/buehne/2024/performing-arts-1920.jpg.jpg/size=966x543.jpg]",
+    "date": "2025-06-15T18:00:00.000Z",
+    "location": "Schaubühne, 10719 Berlin",
+    "latitude": 52.498229,
+    "longitude": 13.312055,
+    "organizerId": 3
+  },
+  {
+    "title": "Rock & Roll Music Festival",
+    "description": "Get ready for electrifying performances from top rock bands! 🎸🔥 Food trucks, craft beer, and non-stop music.\n[imageUrl:https://as2.ftcdn.net/jpg/04/54/23/55/1000_F_454235513_3ISGa2eNG6nQKpoavcuASI1IMpgZczn8.jpg]",
+    "date": "2025-08-20T14:00:00.000Z",
+    "location": "Zeche Zollverein, 45141 Essen",
+    "latitude": 51.486522,
+    "longitude": 7.045215,
+    "organizerId": 3
+  },
+  {
+    "title": "Marathon Challenge 2024",
+    "description": "A thrilling marathon that pushed runners to their limits! 🏃‍♂️🏅 Stay tuned for next year's edition!\n[imageUrl:https://www.berlinglobal.org/content/images/Photo6_960x960-s4q85.jpg]",
+    "date": "2024-05-18T06:00:00.000Z",
+    "location": "Tiergarten, 10557 Berlin",
+    "latitude": 52.516263,
+    "longitude": 13.367269,
+    "organizerId": 3
+  },
+  {
+    "title": "Culinary Street Food Fiesta",
+    "description": "Taste the world with local street food delights! 🍜 Enjoy live cooking demos and savor exotic flavors.\n[imageUrl:https://images.squarespace-cdn.com/content/v1/53e52074e4b0392a271246de/1558335130555-12QFNNLTBB2O2F86SGYV/2019-SFF-Facebook-Homepage-001-blanko.jpg]",
+    "date": "2025-03-15T17:00:00.000Z",
+    "location": "Markthalle, 10115 Berlin",
+    "latitude": 52.520008,
+    "longitude": 13.404954,
+    "organizerId": 1
+  },
+  {
+    "title": "Eco Art & Music Festival",
+    "description": "Celebrate creativity and nature at this eco-friendly festival! 🎨🌿 Enjoy live art installations and musical performances in a sustainable venue.\n[imageUrl:https://www.heh.de/wp-content/uploads/2024/03/twso2022-festivalansicht-drohne-c-antonbrandl-300rgb-1200x430.jpg.webp]",
+    "date": "2025-10-05T15:00:00.000Z",
+    "location": "Olympiapark, 80809 Munich",
+    "latitude": 48.1372,
+    "longitude": 11.5685,
+    "organizerId": 2
+  }
 ]
