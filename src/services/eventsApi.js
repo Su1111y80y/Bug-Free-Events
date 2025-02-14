@@ -66,26 +66,47 @@ export const getUpcomingEvents = async () => {
   }
 };
 
-export const deleteEvent = async (token, id) => {
+export const deleteEvent = async (id, token) => {
   try {
-    const eventsDeletePath = `${eventsPath}/${id}`;
-    const options = {
+    const response = await fetch(`${eventsPath}/${id}`, {
       method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to delete event");
+    }
+
+    return true;
+  } catch (e) {
+    console.error("Error deleting event:", e);
+    throw e;
+  }
+};
+
+export const updateEvent = async (id, eventData, token) => {
+  try {
+    const options = {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      body: JSON.stringify(eventData),
     };
-    const response = await fetch(`${eventsDeletePath}`, options);
+
+    const response = await fetch(`${eventsPath}/${id}`, options);
 
     if (!response.ok) {
-      throw new Error("Failed to delete an event");
+      throw new Error("Failed to update event");
     }
-    const data = await response.json();
-    // console.log("Deleting an event successfully:", data);
-    return data;
+
+    return await response.json();
   } catch (e) {
-    console.log(`${e}, Error deleting an event`);
+    console.error("Error updating event:", e);
+    throw e;
   }
 };
 

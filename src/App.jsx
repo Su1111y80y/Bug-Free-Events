@@ -9,6 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 import NotFoundPage from "./pages/NotFoundPage";
 import EventsPage from "./pages/EventsPage";
 import ScrollToTop from "./components/ScrollToTop";
+import EventDetails from "./pages/EventDetails";
+import EditEventPage from "./pages/EditEventPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -22,6 +25,15 @@ function App() {
             <Route path="login" element={<LoginPage />} />
             <Route path="signup" element={<LoginPage />} />
             <Route path="events" element={<EventsPage />} />
+            <Route path="events/:id" element={<EventDetails />} />
+            <Route
+              path="events/edit/:id"
+              element={
+                <ProtectedRoute>
+                  <EditEventPage />
+                </ProtectedRoute>
+              }
+            />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
