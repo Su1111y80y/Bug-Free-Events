@@ -1,35 +1,30 @@
+import React from 'react';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-6 mt-12">
-      <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-start">
-        {/* Logo & Description */}
-        <div className="mb-6 md:mb-0">
-          <h2 className="text-2xl font-bold text-indigo-500">EventManager</h2>
-          <p className="mt-2 text-gray-400 max-w-sm">
-            Your ultimate platform to discover and manage events effortlessly.
-          </p>
+    <footer className="bg-footerBg text-white p-6 mt-8">
+      <div className="flex justify-between">
+        <div>
+          <h3 className="text-xl font-bold">Bug-Free Events 🐛</h3>
+          <p className="text-sm mt-2">Your go-to platform for event management without the bugs!</p>
         </div>
-
-        {/* Social Media Links */}
-        <div className="text-left md:text-right">
-          <h3 className="text-lg font-semibold text-indigo-400">Follow Us</h3>
-          <div className="mt-2 flex flex-col space-y-2">
-            <a href="#" className="hover:text-indigo-500">
-              📘 Facebook
-            </a>
-            <a href="#" className="hover:text-indigo-500">
-              🐦 Twitter
-            </a>
-            <a href="#" className="hover:text-indigo-500">
-              📸 Instagram
-            </a>
+        <div className="space-y-2">
+          <h4 className="text-lg font-semibold">Follow Us</h4>
+          <div className="flex space-x-4">
+            <a href="https://facebook.com" className="text-blue-500 hover:text-blue-400"><FaFacebook size={30} /></a>
+            <a href="https://twitter.com" className="text-blue-400 hover:text-blue-300"><FaTwitter size={30} /></a>
+            <a href="https://instagram.com" className="text-pink-500 hover:text-pink-400"><FaInstagram size={30} /></a>
           </div>
         </div>
+        <div className="text-sm text-gray-400">
+          <p>123 Fake Street</p>
+          <p>Faketown, FT 12345</p>
+          <p>contact@bugfreeevents.com</p>
+        </div>
       </div>
-
-      {/* Bottom Section */}
-      <div className="text-center text-gray-500 text-sm mt-6 border-t border-gray-700 pt-4">
-        © {new Date().getFullYear()} EventManager. All rights reserved.
+      <div className="text-center text-sm text-gray-400 mt-4">
+        &copy; 2025 Bug-Free Events. All rights reserved.
       </div>
     </footer>
   );
