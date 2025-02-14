@@ -6,17 +6,35 @@ import CreateEventPage from "./pages/CreateEventPage";
 import LoginPage from "./pages/LoginPage"; // Add this import
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NotFoundPage from "./pages/NotFoundPage";
+import EventsPage from "./pages/EventsPage";
+import ScrollToTop from "./components/ScrollToTop";
+import EventDetails from "./pages/EventDetails";
+import EditEventPage from "./pages/EditEventPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="create-event" element={<CreateEventPage />} />
-            <Route path="login" element={<LoginPage />} />{" "}
-            {/* Add this route */}
+            <Route path="login" element={<LoginPage />} />
+            <Route path="signup" element={<LoginPage />} />
+            <Route path="events" element={<EventsPage />} />
+            <Route path="events/:id" element={<EventDetails />} />
+            <Route
+              path="events/edit/:id"
+              element={
+                <ProtectedRoute>
+                  <EditEventPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
