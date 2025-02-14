@@ -9,8 +9,11 @@ import { tokenService } from "../services/token.service";
 const HeroSection = () => {
   const images = [
     "./src/images/concert.jpg",
+    "./src/images/gallery.jpg",
+    "./src/images/techconf.jpg",
+    "./src/images/festival.jpg",
     "./src/images/opera.jpg",
-    "./src/images/conference.jpg",
+    "./src/images/concert2.jpg",
   ];
   const token = tokenService.getToken();
   const navigate = useNavigate();
