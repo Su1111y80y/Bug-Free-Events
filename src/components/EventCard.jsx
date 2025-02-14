@@ -4,10 +4,14 @@ import { FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 const EventCard = ({ event }) => {
   const navigate = useNavigate();
 
+  const handleNavigate = () => {
+    navigate(`/events/${event.id}`);
+  };
+
   return (
     <div
       className="relative bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer hover:shadow-xl"
-      onClick={() => navigate(`/event/${event.id}`)}
+      onClick={handleNavigate}
     >
       {/* Image */}
       <div className="relative h-56 overflow-hidden">
@@ -34,7 +38,7 @@ const EventCard = ({ event }) => {
           className="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition"
           onClick={(e) => {
             e.stopPropagation();
-            navigate(`/event/${event.id}`);
+            navigate(`/events/${event.id}`);
           }}
         >
           View Details
