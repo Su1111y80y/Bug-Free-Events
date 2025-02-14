@@ -14,6 +14,7 @@ const SignupForm = ({ onSignupSuccess }) => {
     email: "",
     password: "",
     confirmPassword: "",
+    newsletter: false, // Add newsletter state
   });
 
   // Validation and error handling states
@@ -164,13 +165,21 @@ const SignupForm = ({ onSignupSuccess }) => {
 
       <Captcha onFailure={handleCaptchaFailure} onValidityChange={handleCaptchaValidityChange} />
 
+      <div className="form-control">
+        <label className="label cursor-pointer">
+          <span className="label-text">Subscribe to our newsletter</span>
+          <input
+            type="checkbox"
+            className="checkbox checkbox-primary"
+            checked={formData.newsletter}
+            onChange={(e) => setFormData({ ...formData, newsletter: e.target.checked })}
+          />
+        </label>
+      </div>
+
       <button type="submit" className="btn btn-primary w-full" disabled={!isFormValid}>
         Create Account
       </button>
-
-      <p className="text-xs text-center text-base-content/70 mt-2">
-        * Sign up functionality is currently in development. Please use the login option.
-      </p>
     </form>
   );
 };
