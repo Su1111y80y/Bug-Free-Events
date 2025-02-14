@@ -25,14 +25,14 @@ const EventCard = ({ event }) => {
       {/* Event Details */}
       <div className="p-6 flex flex-col justify-between min-h-[300px]">
         <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
-          <p className="text-gray-600 mb-2 flex items-center">
+          <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
+          <p className="text-white mb-2 flex items-center">
             <FaMapMarkerAlt className="mr-2" /> {event.location}
           </p>
-          <p className="text-gray-500 mb-2 flex items-center">
+          <p className="text-white mb-2 flex items-center">
             <FaCalendarAlt className="mr-2" /> {new Date(event.date).toDateString()}
           </p>
-          <p className="text-gray-500 mb-4 line-clamp-2">{event.description}</p>
+          <p className="text-white mb-4 line-clamp-2">{event.description}</p>
         </div>
         <button
           className="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition"
