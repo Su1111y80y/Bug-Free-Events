@@ -9,8 +9,11 @@ import { tokenService } from "../services/token.service";
 const HeroSection = () => {
   const images = [
     "./src/images/concert.jpg",
+    "./src/images/gallery.jpg",
+    "./src/images/techconf.jpg",
+    "./src/images/festival.jpg",
     "./src/images/opera.jpg",
-    "./src/images/conference.jpg",
+    "./src/images/concert2.jpg",
   ];
   const token = tokenService.getToken();
   const navigate = useNavigate();
@@ -36,16 +39,10 @@ const HeroSection = () => {
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-screen  ">
-              <img
-                src={image}
-                alt="Event"
-                className="w-full h-full object-cover object-center"
-              />
+              <img src={image} alt="Event" className="w-full h-full object-cover object-center" />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
                 <div className="text-center text-white p-5">
-                  <h1 className="text-4xl md:text-5xl font-bold">
-                    Discover Amazing Events!
-                  </h1>
+                  <h1 className="text-4xl md:text-5xl font-bold">Discover Amazing Events!</h1>
                   <p className="mt-2 text-lg md:text-xl">
                     Join the best events happening near you.
                   </p>
