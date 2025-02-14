@@ -48,8 +48,7 @@ export const authService = {
       });
 
       const data = await response.json();
-      if (!response.ok)
-        throw new Error(data.message || "Failed to fetch profile");
+      if (!response.ok) throw new Error(data.message || "Failed to fetch profile");
       return data;
     } catch (error) {
       throw new Error(`Failed to fetch profile: ${error.message}`);
@@ -86,6 +85,42 @@ export const authService = {
       return data;
     } catch (error) {
       throw error;
+    }
+  },
+
+  /**
+   * Deletes the authenticated user's account
+   * @param {string} token - JWT authentication token
+   * @returns {Promise<boolean>} True if account deletion was successful
+   * @throws {Error} If account deletion fails
+   */
+  deleteAccount: async (token) => {
+    if (!token) throw new Error("Authentication token is required");
+
+    try {
+      // Get user data first to get the ID
+      const userProfile = await authService.getProfile(token);
+
+      if (!userProfile || !userProfile.id) {
+        throw new Error("Could not determine user ID");
+      }
+
+      const response = await fetch(`${API_BASE_URL}/users/${userProfile.id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message || "Failed to delete account");
+      }
+
+      return true;
+    } catch (error) {
+      throw new Error(`Failed to delete account: ${error.message}`);
     }
   },
 };

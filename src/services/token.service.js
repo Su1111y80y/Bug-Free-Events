@@ -4,34 +4,48 @@
  */
 export const tokenService = {
   /**
-   * Retrieves the stored authentication token
-   * @returns {string|null} The stored token or null if not found
-   */
-  getToken: () => {
-    return localStorage.getItem("authToken");
-  },
-
-  /**
    * Stores the authentication token
    * @param {string} token JWT authentication token
    */
   setToken: (token) => {
-    localStorage.setItem("authToken", token);
+    localStorage.setItem("token", token);
   },
 
   /**
-   * Removes the stored authentication token
-   * Used for logging out or token invalidation
+   * Retrieves the stored authentication token
+   * @returns {string|null} The stored token or null if not found
    */
-  removeToken: () => {
-    localStorage.removeItem("authToken");
+  getToken: () => {
+    return localStorage.getItem("token");
   },
 
   /**
-   * Checks if user is authenticated
-   * @returns {boolean} True if valid token exists
+   * Stores the user information
+   * @param {Object} user User information object
    */
-  isAuthenticated: () => {
-    return !!localStorage.getItem("authToken");
+  setUser: (user) => {
+    localStorage.setItem("user", JSON.stringify(user));
+  },
+
+  /**
+   * Retrieves the stored user information
+   * @returns {Object|null} The stored user information or null if not found
+   */
+  getUser: () => {
+    const userStr = localStorage.getItem("user");
+    try {
+      return userStr ? JSON.parse(userStr) : null;
+    } catch {
+      return null;
+    }
+  },
+
+  /**
+   * Clears the stored authentication token and user information
+   * Used for logging out or account deletion
+   */
+  clearAuth: () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
   },
 };
