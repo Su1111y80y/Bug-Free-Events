@@ -47,7 +47,7 @@ const Navbar = () => {
               <Link to="/login" className="btn btn-ghost">
                 Login
               </Link>
-              <Link to="/signup" className="btn btn-primary">
+              <Link to="/login" state={{ isLogin: false }} className="btn btn-primary">
                 Sign Up
               </Link>
             </>
@@ -78,11 +78,7 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <Link
-                to="/login"
-                state={{ isLogin: true }}
-                className="block bg-indigo-600 text-white px-4 py-2 rounded-lg"
-              >
+              <Link to="/login" className="block bg-indigo-600 text-white px-4 py-2 rounded-lg">
                 Login
               </Link>
               <Link
