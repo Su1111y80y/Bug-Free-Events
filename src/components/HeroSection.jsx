@@ -48,7 +48,7 @@ const HeroSection = () => {
                   </p>
                   <div className="mt-4 flex justify-center gap-4">
                     <a
-                      href="#event-section"
+                      href="/events"
                       className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
                     >
                       Explore Events

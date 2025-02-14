@@ -10,7 +10,7 @@ const EventCard = ({ event }) => {
 
   return (
     <div
-      className="relative bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer hover:shadow-xl"
+      className="relative rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 cursor-pointer hover:shadow-xl"
       onClick={handleNavigate}
     >
       {/* Image */}
